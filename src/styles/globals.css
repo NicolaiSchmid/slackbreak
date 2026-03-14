@@ -2,6 +2,103 @@
 
 @theme {
 	--font-sans:
-		var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif,
+		var(--font-plex-sans), ui-sans-serif, system-ui, sans-serif,
 		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	--font-display: var(--font-cormorant), Georgia, serif;
+	--color-paper: #f6f0e3;
+	--color-ink: #14120f;
+	--color-muted: #6c665f;
+	--color-accent: #c44f33;
+	--color-accent-soft: #e4b39b;
+	--color-panel: rgba(255, 252, 246, 0.78);
+}
+
+:root {
+	color-scheme: light;
+}
+
+html {
+	background:
+		radial-gradient(
+			circle at top left,
+			rgba(196, 79, 51, 0.12),
+			transparent 24%
+		),
+		radial-gradient(
+			circle at top right,
+			rgba(20, 18, 15, 0.08),
+			transparent 20%
+		),
+		linear-gradient(180deg, #f7f1e5 0%, #efe6d3 46%, #efe7db 100%);
+}
+
+body {
+	min-height: 100vh;
+	background-image:
+		linear-gradient(rgba(20, 18, 15, 0.03) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(20, 18, 15, 0.03) 1px, transparent 1px);
+	background-position: center center;
+	background-size: 36px 36px;
+	color: var(--color-ink);
+	font-family: var(--font-sans);
+}
+
+a,
+button {
+	transition:
+		transform 180ms ease,
+		background-color 180ms ease,
+		color 180ms ease,
+		border-color 180ms ease,
+		box-shadow 180ms ease;
+}
+
+::selection {
+	background: rgba(196, 79, 51, 0.18);
+}
+
+.grain-overlay {
+	position: relative;
+}
+
+.grain-overlay::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	background-image: radial-gradient(
+		rgba(20, 18, 15, 0.08) 0.5px,
+		transparent 0.5px
+	);
+	background-size: 8px 8px;
+	mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.28), transparent);
+	opacity: 0.35;
+}
+
+.fade-rise {
+	animation: fade-rise 700ms ease both;
+}
+
+.fade-rise-delay-1 {
+	animation-delay: 120ms;
+}
+
+.fade-rise-delay-2 {
+	animation-delay: 220ms;
+}
+
+.fade-rise-delay-3 {
+	animation-delay: 320ms;
+}
+
+@keyframes fade-rise {
+	from {
+		opacity: 0;
+		transform: translateY(18px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
